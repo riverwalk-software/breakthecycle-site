@@ -1,10 +1,29 @@
 ---
 import HeroHelper from "./HeroHelper";
+import HeroHelperNew from "./HeroHelperNew.astro";
 import RockTheJVM from "./icons/RockTheJVM.astro";
+
+const props = {
+  image: {
+    src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-6779cbdd-d3a5-4660-b9c7-c5319e0c7c3b-1920x1080.jpg",
+    alt: "Church",
+  },
+  flip: false,
+};
+
+const image = {
+  src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-6779cbdd-d3a5-4660-b9c7-c5319e0c7c3b-1920x1080.jpg",
+  alt: "Church",
+};
+
+const imageSrc =
+  "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-6779cbdd-d3a5-4660-b9c7-c5319e0c7c3b-1920x1080.jpg";
+const imageAlt = "Church";
+const flip = false;
 ---
 
-<header>
-  <HeroHelper>
+<header class="w-full">
+  <HeroHelperNew {imageSrc} {imageAlt} {flip}>
     <RockTheJVM class="h-48 md:h-64 w-full" slot="logo" />
-  </HeroHelper>
+  </HeroHelperNew>
 </header>

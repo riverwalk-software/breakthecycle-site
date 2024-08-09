@@ -47,11 +47,27 @@ const title = "Home";
   <NarrowContainer>
     <CardList class="text-white">
       <Hero slot="one" />
-      <LatestContent slot="two" />
+      <section class="w-full my-16" slot="two">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="text-lg mb-8">Support Our Mission</h2>
+          <p>
+            Your generous donation helps us continue our vital work at Break the
+            Cycle Ministries, empowering those trapped in cycles of despair.
+            Every contribution brings us closer to a world where everyone can
+            access the transformative power of faith and community support.
+          </p>
+          <button
+            type="button"
+            class="rounded-full my-4 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >Donate Now</button
+          >
+        </div>
+      </section>
+      <!-- <LatestContent slot="two" />
       <Courses slot="three" />
       <Membership slot="four" />
       <SocialProof slot="five" />
-      <Testimonials slot="six" />
+      <Testimonials slot="six" /> -->
       <Contact slot="seven" />
     </CardList>
   </NarrowContainer>
