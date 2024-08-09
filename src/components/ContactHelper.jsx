@@ -25,10 +25,12 @@ export default function Example() {
     <div className="isolate my-16 bg-secondary px-6 py-8 lg:mx-32 rounded-3xl sm:py-12">
       <div className="mx-auto max-w-xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-content sm:text-4xl">
-          Need a course or training session?
+          Get in touch with us
         </h2>
         <p className="mt-2 text-lg leading-8 text-content">
-          Send me a message and let's talk about your needs.
+          For inquiries, prayer requests, or to speak with our ministry team,
+          please fill out our contact form or use the details below to reach us
+          directly.
         </p>
       </div>
       <form action="#" method="POST" className="mx-auto max-w-xl">
@@ -55,7 +57,7 @@ export default function Example() {
               htmlFor="email"
               className="block text-sm font-semibold leading-6 text-content"
             >
-              Email
+              Email or Phone
             </label>
             <div className="mt-2.5">
               <input
@@ -72,7 +74,7 @@ export default function Example() {
               htmlFor="message"
               className="block text-sm font-semibold leading-6 text-content"
             >
-              Message
+              Message (optional)
             </label>
             <div className="mt-2.5">
               <textarea

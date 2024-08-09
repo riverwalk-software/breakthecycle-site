@@ -3,6 +3,7 @@ import site from "../data/site.json";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Logo from "../assets/images/logos/rtjvm-red.png";
 import Membership from "../components/Membership.astro";
+import Event from "../components/Event.astro";
 import NarrowContainer from "../containers/NarrowContainer";
 import { type CollectionEntry } from "astro:content";
 import Testimonials from "../components/Testimonials.astro";
@@ -21,6 +22,30 @@ interface Props {
 }
 const image = { src: Logo.src, alt: site.logo.alt };
 const title = "Home";
+
+const events = [
+  {
+    section: {
+      src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-1346ad46-dc49-40c4-b400-0a589ee6d3ab-800x600.jpg",
+      alt: "Event 1",
+    },
+    flip: false,
+  },
+  {
+    section: {
+      src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-7f6da751-98b2-47bb-ab6b-4780a499a759-800x600.jpg",
+      alt: "Event 1",
+    },
+    flip: false,
+  },
+  {
+    section: {
+      src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-a67f3edd-e335-4072-82e1-99f2825fdd96-800x600.jpg",
+      alt: "Event 1",
+    },
+    flip: false,
+  },
+];
 ---
 
 <BaseLayout description={site.description} {image} {title}>
@@ -62,6 +87,115 @@ const title = "Home";
             >Donate Now</button
           >
         </div>
+      </section>
+      <section slot="three">
+        <ul
+          role="list"
+          class="mx-auto px-8 my-8 md:my-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <h3 class="my-8">Our Founding Vision</h3>
+              <p>
+                Welcome to Break the Cycle Ministries, a sanctuary born from the
+                profound vision of our founder, William Bowen, who envisioned a
+                world free from the cycles of despair. His personal journey
+                through adversity and triumph has shaped our core mission to
+                ignite change and inspire hope in the hearts of many.
+              </p>
+            </div>
+          </li>
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <h3 class="my-8">A Message of Hope</h3>
+              <p>
+                At the heart of our ministry lies a powerful message of hope,
+                delivered by William Bowen. His life, marked by struggles with
+                abuse, addiction, and loss, serves as a beacon for those seeking
+                redemption and transformation. Through his stories and
+                teachings, he inspires others to believe in the possibility of a
+                renewed life through faith and community support.
+              </p>
+            </div>
+          </li>
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <h3 class="my-8">Why We Exist</h3>
+              <p>
+                Break the Cycle Ministries was established to challenge the
+                status quo of despair and offer a pathway to spiritual and
+                personal rebirth. We are dedicated to empowering individuals,
+                especially the youth, to overcome their challenges by embracing
+                the transformative power of God’s love and the supportive
+                fellowship of our community.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section slot="four">
+        <h2>Explore Our Services</h2>
+        <ul
+          role="list"
+          class="mx-auto px-8 my-8 md:my-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <h3 class="my-8">Youth Guidance Programs</h3>
+              <p>
+                Our Youth Guidance Programs focus on mentoring young
+                individuals, providing them with spiritual tools and wisdom to
+                navigate life’s challenges.
+              </p>
+            </div>
+          </li>
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <h3 class="my-8">Spiritual Renewal Workshops</h3>
+              <p>
+                Join our workshops designed to foster spiritual growth and
+                personal transformation, suitable for all who seek truth and
+                deeper faith.
+              </p>
+            </div>
+          </li>
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <h3 class="my-8">Community Outreach Initiatives</h3>
+              <p>
+                We extend our hands to the community through various outreach
+                initiatives, aiming to break the cycles of despair and uplift
+                the spirits of many.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section slot="five">
+        <h2>Upcoming Events</h2>
+        {
+          events.map((event) => (
+            <Event flip={event.flip} section={event.section}>
+              <h3>Youth Empowerment Workshop</h3>
+              <p>
+                A dynamic workshop designed to inspire and empower our youth
+                through interactive discussions and activities.
+              </p>
+            </Event>
+          ))
+        }
       </section>
       <!-- <LatestContent slot="two" />
       <Courses slot="three" />
