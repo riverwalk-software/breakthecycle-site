@@ -13,6 +13,7 @@ import Contact from "../components/Contact.astro";
 import Courses from "../components/Courses.astro";
 import LatestContent from "../components/LatestContent.astro";
 import CardList from "../containers/CardList";
+import CTA from "@components/CTA.astro";
 interface Props {
   canonicalUrl: URL;
   description: string;
@@ -21,7 +22,7 @@ interface Props {
   companies: CollectionEntry<"companies">[];
 }
 const image = { src: Logo.src, alt: site.logo.alt };
-const title = "Home";
+const title = "Break the Cycle Ministries";
 
 const events = [
   {
@@ -46,6 +47,13 @@ const events = [
     flip: false,
   },
 ];
+
+const heroImage =
+  "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-6779cbdd-d3a5-4660-b9c7-c5319e0c7c3b-1920x1080.jpg";
+const heroAlt = "Church";
+const heroDescription =
+  "Under the steadfast leadership of William Bowen, Break the Cycle Ministries offers a sanctuary for transformation and spiritual empowerment. Our commitment is to guide individuals through their personal adversities, leveraging the profound power of faith to foster healing and growth.";
+const supplemental = "Empowering Journeys of Faith";
 ---
 
 <BaseLayout description={site.description} {image} {title}>
@@ -69,9 +77,17 @@ const events = [
     >
     </div>
   </div>
+  <CTA
+    description={heroDescription}
+    {supplemental}
+    src={heroImage}
+    alt={title}
+    {title}
+  />
   <NarrowContainer>
     <CardList class="text-white">
-      <Hero slot="one" />
+      <Hero />
+
       <section class="w-full my-16" slot="two">
         <div class="mx-auto max-w-3xl text-center">
           <h2 class="text-lg mb-8">Support Our Mission</h2>
@@ -197,6 +213,7 @@ const events = [
           ))
         }
       </section>
+      <SocialProof slot="six" />
       <!-- <LatestContent slot="two" />
       <Courses slot="three" />
       <Membership slot="four" />

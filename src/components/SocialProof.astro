@@ -3,13 +3,9 @@ import { getEntry } from "astro:content";
 import AuthorExpanded from "./AuthorExpanded.astro";
 import LogoCloud from "./LogoCloud.astro";
 
-const author = await getEntry("authors", "daniel-ciocirlan");
+const author = await getEntry("authors", "billy-bowen");
 ---
 
 <section class="pt-24 pb-12">
-  <h2 class="font-bold mb-12 tracking-tight text-center text-content">
-    The Instructor
-  </h2>
   <AuthorExpanded {author} />
-  <LogoCloud />
 </section>

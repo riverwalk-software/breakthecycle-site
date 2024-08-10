@@ -7,19 +7,6 @@ export default function Example(props) {
           <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-content">
             {props.name}
           </h3>
-          {props.role && (
-            <p className="text-sm leading-6 text-content">
-              {props.role} |{" "}
-              <a
-                href={props.companyWebsite}
-                target="_blank"
-                rel="noreferrer"
-                className="font-bold text-content"
-              >
-                {props.companyName}
-              </a>
-            </p>
-          )}
           {props.biography && (
             <p className="mt-4 text-lg leading-8 text-content">
               {props.biography}

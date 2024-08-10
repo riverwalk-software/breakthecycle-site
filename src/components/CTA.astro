@@ -5,16 +5,17 @@ import { Image } from "astro:assets";
 interface Props {
   alt: string;
   description: string;
-  src: ImageMetadata;
+  src: string;
   title: string;
+  supplemental?: string;
 }
 
-const { alt, description, src, title } = Astro.props;
+const { alt, description, src, title, supplemental } = Astro.props;
 ---
 
-<CTAHelper {description} {title}>
+<CTAHelper {description} {title} {supplemental}>
   <slot />
-  <Image
+  <img
     {alt}
     {src}
     class="absolute inset-0 w-full h-full object-cover"

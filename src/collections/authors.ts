@@ -7,13 +7,6 @@ export default defineCollection({
       .object({
         biography: z.string().optional(),
         canonicalUrl: z.string().url().optional(),
-        company: z
-          .object({
-            entity: reference("companies"),
-            role: z.string(),
-          })
-          .strict()
-          .optional(),
         guestPlug: z.string().optional(),
         location: z
           .object({

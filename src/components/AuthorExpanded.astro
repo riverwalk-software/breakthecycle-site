@@ -16,16 +16,6 @@ interface Props {
 const { author } = Astro.props;
 const { biography, company, name, photo, socials } = author.data;
 const role = company?.role;
-const companyName = company
-  ? await getEntry(company?.entity.collection, company?.entity.id).then(
-      (company) => company.data.title
-    )
-  : undefined;
-const companyWebsite = company
-  ? await getEntry(company?.entity.collection, company?.entity.id).then(
-      (company) => company.data.website
-    )
-  : undefined;
 ---
 
 <AuthorExpandedHelper
@@ -36,8 +26,6 @@ const companyWebsite = company
   youtubeUrl=`https://www.youtube.com/${socials?.youtube}`
   {name}
   {role}
-  {companyName}
-  {companyWebsite}
   {socials}
 >
   <a href={`/authors/${author.id}`} slot="photo">
