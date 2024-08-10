@@ -79,7 +79,7 @@ const supplemental = "Empowering Journeys of Faith";
   </div>
   <CTA
     description={heroDescription}
-    {supplemental}
+    supplemental={supplemental}
     src={heroImage}
     alt={title}
     {title}
@@ -203,7 +203,16 @@ const supplemental = "Empowering Journeys of Faith";
         <h2>Upcoming Events</h2>
         {
           events.map((event) => (
-            <Event flip={event.flip} section={event.section}>
+            <Event
+              flip={event.flip}
+              section={event.section}
+              title={"Youth Empowerment Workshop"}
+              price={"Free"}
+              date={"October 15, 2023"}
+              description={
+                "A dynamic workshop designed to inspire and empower our youth through interactive discussions and activities."
+              }
+            >
               <h3>Youth Empowerment Workshop</h3>
               <p>
                 A dynamic workshop designed to inspire and empower our youth

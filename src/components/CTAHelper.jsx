@@ -14,10 +14,10 @@ export default function Example(props) {
           <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
             {props.description}
           </p>
-          <div class="mt-8">
+          <div className="mt-8">
             <button
               type="button"
-              class="rounded-full bg-[#0b49d0] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="rounded-full bg-[#0b49d0] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Explore Our Mission
             </button>
