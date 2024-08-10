@@ -8,9 +8,9 @@ export default function Example(props) {
           {props.supplemental && (
             <p className="text-md text-white">{props.supplemental}</p>
           )}
-          <h2 className="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl">
+          <h1 className="text-9xl font-bold tracking-tight text-gray-100 sm:text-4xl">
             {props.title}
-          </h2>
+          </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
             {props.description}
           </p>

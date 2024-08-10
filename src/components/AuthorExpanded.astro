@@ -29,11 +29,13 @@ const role = company?.role;
   {socials}
 >
   <a href={`/authors/${author.id}`} slot="photo">
-    <Image
-      src={photo}
-      alt={name}
-      class="mx-auto h-56 w-56 rounded-full shadow-lg"
-    />
+    <div class="rounded-full mx-auto overflow-hidden h-56 w-56">
+      <Image
+        src={photo}
+        alt={name}
+        class="mx-auto w-56 object-top rounded-full shadow-lg"
+      />
+    </div>
   </a>
   <Facebook slot="facebook" />
   <GitHub slot="github" />

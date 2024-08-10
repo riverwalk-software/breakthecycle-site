@@ -4,7 +4,7 @@ export default function Example(props) {
       <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
         <div className="mx-auto max-w-2xl">
           {props.photo}
-          <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-content">
+          <h3 className="mt-6 text-3xl font-semibold leading-7 tracking-tight text-content">
             {props.name}
           </h3>
           {props.biography && (

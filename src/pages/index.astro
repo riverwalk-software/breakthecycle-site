@@ -91,18 +91,18 @@ const supplemental = "Empowering Journeys of Faith";
     >
     </div>
   </div>
-  <CTA
+  <!-- <CTA
     description={heroDescription}
     supplemental={supplemental}
     src={heroImage}
     alt={title}
     {title}
-  />
+  /> -->
   <NarrowContainer>
     <CardList class="text-white">
-      <Hero />
+      <Hero slot="one" />
 
-      <section class="w-full min-h-[100vh] mt-32" slot="two">
+      <section class="w-full min-h-[100vh] mt-8 md:mt-16" slot="two">
         <div class="mx-auto max-w-3xl text-center">
           <h2 class="text-lg mb-8">Support Our Mission</h2>
           <p>
@@ -119,7 +119,7 @@ const supplemental = "Empowering Journeys of Faith";
         </div>
         <ul
           role="list"
-          class="mx-auto px-8 my-8 md:my-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          class="mx-auto px-8 my-8 md:my-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
         >
           <li
             class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
@@ -172,7 +172,7 @@ const supplemental = "Empowering Journeys of Faith";
           <h2>Explore Our Services</h2>
           <ul
             role="list"
-            class="mx-auto px-8 my-8 md:my-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            class="mx-auto px-8 my-8 md:my-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
           >
             <li
               class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
