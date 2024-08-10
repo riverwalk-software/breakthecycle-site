@@ -6,9 +6,8 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import site from "../data/site.json";
 
 const navigation = [
-  { name: "Articles", href: "/articles" },
-  { name: "Courses", href: "/courses" },
-  { name: "Videos", href: "https://www.youtube.com/rockthejvm" },
+  { name: "Services", href: "/services" },
+  { name: "Events", href: "/events" },
   { name: "About", href: "/about" },
 ];
 
@@ -49,7 +48,7 @@ export default function Example(props) {
             href="https://sso.teachable.com/secure/256201/identity/login/password"
             className="text-sm font-semibold leading-6 text-content"
           >
-            Log in <span aria-hidden="true">&rarr;</span>
+            Contact Us <span aria-hidden="true">&rarr;</span>
           </a>
           {props.themeToggle}
         </div>
