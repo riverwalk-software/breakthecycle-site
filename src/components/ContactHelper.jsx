@@ -22,7 +22,7 @@ export default function Example() {
   const [agreed, setAgreed] = useState(false);
 
   return (
-    <div className="isolate bg-secondary px-6 py-8 lg:mx-32 rounded-3xl sm:py-12">
+    <div className="isolate bg-secondary px-6 py-8 mb-8 lg:mx-32 rounded-3xl sm:py-12 shadow-2xl">
       <div className="mx-auto max-w-xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-content sm:text-4xl">
           Get in touch with us
@@ -112,7 +112,7 @@ export default function Example() {
         <div className="mt-10">
           <button
             type="submit"
-            className="block w-full rounded-md bg-primary px-3.5 py-2.5 text-center text-sm font-semibold text-content shadow-sm hover:bg-accent-1 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="block w-full text-white rounded-md bg-primary px-3.5 py-2.5 text-center text-sm font-semibold shadow-sm hover:bg-accent-1 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Let's talk
           </button>
