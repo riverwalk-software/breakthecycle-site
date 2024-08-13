@@ -101,22 +101,36 @@ const supplemental = "Empowering Journeys of Faith";
   <NarrowContainer>
     <CardList class="text-white">
       <Hero slot="one" />
-
-      <section class="w-full min-h-[100vh] mt-8 md:mt-16" slot="two">
-        <div class="mx-auto max-w-3xl text-center">
-          <h2 class="text-lg mb-8">Support Our Mission</h2>
-          <p>
-            Your generous donation helps us continue our vital work at Break the
-            Cycle Ministries, empowering those trapped in cycles of despair.
-            Every contribution brings us closer to a world where everyone can
-            access the transformative power of faith and community support.
-          </p>
-          <button
-            type="button"
-            class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >Donate Now</button
-          >
-        </div>
+    </CardList>
+  </NarrowContainer>
+  <CardList class="text-white"
+    >>
+    <section class="w-full relative my-auto py-16" slot="two">
+      <div
+        class="absolute -z-20 inset-0 bg-cover bg-[url('https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-2365d98e-bff2-4640-a93d-bda52f5975d4-1920x1080.jpg')]"
+      >
+      </div>
+      <div class="absolute -z-10 inset-0 bg-black opacity-60 backdrop-blur-sm">
+      </div>
+      <div class="mx-auto max-w-3xl z-10 text-white text-center">
+        <h2 class="text-lg mb-8">Support Our Mission</h2>
+        <p>
+          Your generous donation helps us continue our vital work at Break the
+          Cycle Ministries, empowering those trapped in cycles of despair. Every
+          contribution brings us closer to a world where everyone can access the
+          transformative power of faith and community support.
+        </p>
+        <button
+          type="button"
+          class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >Donate Now</button
+        >
+      </div>
+    </section>
+  </CardList>
+  <NarrowContainer>
+    <CardList class="text-white">
+      <section slot="three">
         <ul
           role="list"
           class="mx-auto px-8 my-8 md:my-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
@@ -167,8 +181,8 @@ const supplemental = "Empowering Journeys of Faith";
           </li>
         </ul>
       </section>
-      <section slot="four" class="min-h-[100vh] flex">
-        <div class="my-auto">
+      <section slot="four" class="flex">
+        <div class="">
           <h2>Explore Our Services</h2>
           <ul
             role="list"
