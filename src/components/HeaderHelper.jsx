@@ -15,7 +15,7 @@ export default function Example(props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="shadow-slate-300 bg-opacity-5 bg-black">
+    <header className="shadow-slate-300 bg-white lg:bg-opacity-5 lg:bg-black">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
@@ -23,7 +23,7 @@ export default function Example(props) {
         <a href="/" className="-m-1.5 p-1.5">
           <span className="sr-only">{site.name}</span>
           <img
-            class="w-10"
+            className="w-10"
             src="https://breakthecyclesministries.com/wp-content/uploads/2024/04/Untitled-1-1.png"
           />
           {/* {props.logo} */}
