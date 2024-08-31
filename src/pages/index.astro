@@ -91,20 +91,8 @@ const supplemental = "Empowering Journeys of Faith";
     >
     </div>
   </div>
-  <!-- <CTA
-    description={heroDescription}
-    supplemental={supplemental}
-    src={heroImage}
-    alt={title}
-    {title}
-  /> -->
   <Hero />
-  <!-- `<NarrowContainer>
-    <CardList class="text-white">
-      <Hero slot="one" />
-    </CardList>
-  </NarrowContainer>` -->
-  <CardList class="text-white">
+  <!-- <CardList class="text-white">
     <section class="w-full relative my-auto py-16" slot="two">
       <div
         class="absolute -z-20 inset-0 bg-cover bg-[url('https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-2365d98e-bff2-4640-a93d-bda52f5975d4-1920x1080.jpg')]"
@@ -127,62 +115,11 @@ const supplemental = "Empowering Journeys of Faith";
         >
       </div>
     </section>
-  </CardList>
+  </CardList> -->
   <NarrowContainer>
     <CardList class="text-white">
-      <section slot="three">
-        <ul
-          role="list"
-          class="mx-auto px-8 my-8 md:my-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          <li
-            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
-          >
-            <div>
-              <h3 class="my-8">Our Founding Vision</h3>
-              <p>
-                Welcome to Break the Cycle Ministries, a sanctuary born from the
-                profound vision of our founder, William Bowen, who envisioned a
-                world free from the cycles of despair. His personal journey
-                through adversity and triumph has shaped our core mission to
-                ignite change and inspire hope in the hearts of many.
-              </p>
-            </div>
-          </li>
-          <li
-            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
-          >
-            <div>
-              <h3 class="my-8">A Message of Hope</h3>
-              <p>
-                At the heart of our ministry lies a powerful message of hope,
-                delivered by William Bowen. His life, marked by struggles with
-                abuse, addiction, and loss, serves as a beacon for those seeking
-                redemption and transformation. Through his stories and
-                teachings, he inspires others to believe in the possibility of a
-                renewed life through faith and community support.
-              </p>
-            </div>
-          </li>
-          <li
-            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
-          >
-            <div>
-              <h3 class="my-8">Why We Exist</h3>
-              <p>
-                Break the Cycle Ministries was established to challenge the
-                status quo of despair and offer a pathway to spiritual and
-                personal rebirth. We are dedicated to empowering individuals,
-                especially the youth, to overcome their challenges by embracing
-                the transformative power of God’s love and the supportive
-                fellowship of our community.
-              </p>
-            </div>
-          </li>
-        </ul>
-      </section>
-      <section slot="four" class="flex">
-        <div class="">
+      <section slot="three" class="flex">
+        <div class="my-8 md:my-12">
           <h2>Explore Our Services</h2>
           <ul
             role="list"
@@ -237,28 +174,82 @@ const supplemental = "Empowering Journeys of Faith";
           </ul>
         </div>
       </section>
-      <section slot="five" class="min-h-[100vh]">
-        <h2>Upcoming Events</h2>
-        {
-          events.map((event) => (
-            <Event
-              flip={event.flip}
-              section={event.section}
-              title={"Youth Empowerment Workshop"}
-              price={"Free"}
-              date={"October 15, 2023"}
-              description={
-                "A dynamic workshop designed to inspire and empower our youth through interactive discussions and activities."
-              }
-            >
-              <h3>Youth Empowerment Workshop</h3>
+      <section slot="four">
+        <ul
+          role="list"
+          class="mx-auto px-8 my-8 md:my-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <h3 class="my-8">Our Founding Vision</h3>
               <p>
-                A dynamic workshop designed to inspire and empower our youth
-                through interactive discussions and activities.
+                Welcome to Break the Cycle Ministries, a sanctuary born from the
+                profound vision of our founder, William Bowen, who envisioned a
+                world free from the cycles of despair. His personal journey
+                through adversity and triumph has shaped our core mission to
+                ignite change and inspire hope in the hearts of many.
               </p>
-            </Event>
-          ))
-        }
+            </div>
+          </li>
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <h3 class="my-8">A Message of Hope</h3>
+              <p>
+                At the heart of our ministry lies a powerful message of hope,
+                delivered by William Bowen. His life, marked by struggles with
+                abuse, addiction, and loss, serves as a beacon for those seeking
+                redemption and transformation. Through his stories and
+                teachings, he inspires others to believe in the possibility of a
+                renewed life through faith and community support.
+              </p>
+            </div>
+          </li>
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <h3 class="my-8">Why We Exist</h3>
+              <p>
+                Break the Cycle Ministries was established to challenge the
+                status quo of despair and offer a pathway to spiritual and
+                personal rebirth. We are dedicated to empowering individuals,
+                especially the youth, to overcome their challenges by embracing
+                the transformative power of God’s love and the supportive
+                fellowship of our community.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section slot="five" class="min-h-[100vh]">
+        <div class="my-8 md:my-16">
+          <h2>Upcoming Events</h2>
+          {
+            events.map((event) => (
+              <Event
+                flip={event.flip}
+                section={event.section}
+                title={"Youth Empowerment Workshop"}
+                price={"Free"}
+                date={"October 15, 2023"}
+                description={
+                  "A dynamic workshop designed to inspire and empower our youth through interactive discussions and activities."
+                }
+              >
+                <h3>Youth Empowerment Workshop</h3>
+                <p>
+                  A dynamic workshop designed to inspire and empower our youth
+                  through interactive discussions and activities.
+                </p>
+              </Event>
+            ))
+          }
+        </div>
       </section>
       <SocialProof slot="six" />
       <!-- <LatestContent slot="two" />
