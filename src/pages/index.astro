@@ -119,11 +119,11 @@ const supplemental = "Empowering Journeys of Faith";
   <NarrowContainer>
     <CardList class="text-white">
       <section slot="three" class="flex">
-        <div class="my-8 md:my-12">
+        <div class="my-8">
           <h2>Explore Our Services</h2>
           <ul
             role="list"
-            class="mx-auto px-8 my-8 md:my-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+            class="mx-auto px-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
           >
             <li
               class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
@@ -174,10 +174,11 @@ const supplemental = "Empowering Journeys of Faith";
           </ul>
         </div>
       </section>
-      <section slot="four">
+      <section slot="four" class="my-8">
+        <h2>About Us</h2>
         <ul
           role="list"
-          class="mx-auto px-8 my-8 md:my-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          class="mx-auto px-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
         >
           <li
             class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
@@ -226,8 +227,8 @@ const supplemental = "Empowering Journeys of Faith";
         </ul>
       </section>
 
-      <section slot="five" class="min-h-[100vh]">
-        <div class="my-8 md:my-16">
+      <section slot="five" class="min-h-[100vh] my-32">
+        <div class="">
           <h2>Upcoming Events</h2>
           {
             events.map((event) => (

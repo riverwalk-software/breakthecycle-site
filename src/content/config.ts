@@ -8,6 +8,7 @@ import legals from "@collections/legals";
 import memberships from "@collections/memberships";
 import newsletters from "@collections/newsletters";
 import seriess from "@collections/seriess";
+import services from "@collections/services";
 import socials from "@collections/socials";
 import tags from "@collections/tags";
 import testimonials from "@collections/testimonials";
@@ -24,6 +25,7 @@ export const collections = {
   memberships,
   newsletters,
   seriess,
+  services,
   socials,
   tags,
   testimonials,

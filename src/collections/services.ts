@@ -3,7 +3,7 @@ import { string } from "astro/zod";
 import { defineCollection, reference, z } from "astro:content";
 
 export default defineCollection({
-  type: "data",
+  type: "content",
   schema: ({ image }) =>
     z.object({
       benefits: z.array(z.string()),
