@@ -1,5 +1,15 @@
 ---
-import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+import { Image } from "astro:assets";
+import NarrowContainer from "@containers/NarrowContainer";
+import Prose from "@components/Prose.astro";
+import WeddingPricing from "@components/WeddingPricing.astro";
+
+const { slug } = Astro.params;
+const course = await getEntry("services", slug!);
+const frontmatter = course!.data;
+const { benefits, image } = frontmatter;
 
 export async function getStaticPaths() {
   const services = await getCollection("services");
@@ -15,4 +25,44 @@ const { service } = Astro.props;
 console.log(service);
 ---
 
-<p>test</p>
+<BaseLayout description="test" title="Weddings">
+  <NarrowContainer>
+    <article class="bg-bkg">
+      <h1 class="my-16">Our Wedding Services</h1>
+      <div class="max-w-2xl">
+        {image && <Image src={image} alt="Wedding services" />}
+      </div>
+      <section class="my-16">
+        <Prose>
+          <h2>Officiating Weddings</h2>
+          <p>
+            Here at your ceremony we are a Judgement free ministry, We want to
+            give people from all walks of life an experience not just another
+            officiant. Rev. Billy AKA B-REV has come from a hard past and knows
+            how love can change a person&#39;s life. We are compassionate and
+            professional and want to bring our experience to your experience.
+          </p>
+        </Prose>
+      </section>
+      <section class="my-16">
+        <Prose>
+          <h2>What's included?</h2>
+          <ul>
+            {
+              benefits &&
+                benefits.map((benefit) => (
+                  <li>
+                    <p>{benefit}</p>
+                  </li>
+                ))
+            }
+          </ul>
+        </Prose>
+      </section>
+      <section>
+        <h2>Pricing</h2>
+        <WeddingPricing />
+      </section>
+    </article>
+  </NarrowContainer>
+</BaseLayout>
