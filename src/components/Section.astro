@@ -4,12 +4,13 @@ import H2 from "./H2.astro";
 interface Props {
   color: string;
   title?: string;
+  hideMargin?: boolean;
 }
 
-const { color, title } = Astro.props;
+const { color, title, hideMargin = false } = Astro.props;
 ---
 
-<section class="mb-16 pb-8 relative">
+<section class={`pb-8 ${hideMargin ? "" : "mb-16"} relative`}>
   <div class="">
     {
       title && (

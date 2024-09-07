@@ -16,7 +16,7 @@ export async function getStaticPaths() {
   const services = await getCollection("services");
 
   return services.map((service) => ({
-    params: { slug: service.slug },
+    params: { slug: service.id },
     props: { service },
   }));
 }
@@ -28,44 +28,54 @@ console.log(service);
 
 <BaseLayout description="test" title="Weddings">
   <!-- <NarrowContainer> -->
-  <article class="bg-white">
-    <h1 class="my-16">Our Wedding Services</h1>
-    <div class="max-w-2xl">
-      {image && <Image src={image} alt="Wedding services" />}
-    </div>
+  <article class="">
+    <NarrowContainer>
+      <h1 class="my-16">Our Wedding Services</h1>
+    </NarrowContainer>
+    <NarrowContainer>
+      <div class="max-w-2xl">
+        {image && <Image src={image} alt="Wedding services" />}
+      </div>
+    </NarrowContainer>
     <section class="my-16">
-      <Prose>
-        <h2>Officiating Weddings</h2>
-        <p>
-          Here at your ceremony we are a Judgement free ministry, We want to
-          give people from all walks of life an experience not just another
-          officiant. Rev. Billy AKA B-REV has come from a hard past and knows
-          how love can change a person&#39;s life. We are compassionate and
-          professional and want to bring our experience to your experience.
-        </p>
-      </Prose>
+      <NarrowContainer>
+        <Prose>
+          <h2>Officiating Weddings</h2>
+          <p>
+            Here at your ceremony we are a Judgement free ministry, We want to
+            give people from all walks of life an experience not just another
+            officiant. Rev. Billy AKA B-REV has come from a hard past and knows
+            how love can change a person's life. We are compassionate and
+            professional and want to bring our experience to your experience.
+          </p>
+        </Prose>
+      </NarrowContainer>
     </section>
     <section class="my-16">
-      <Prose>
-        <h2>What's included?</h2>
-        <ul>
-          {
-            benefits &&
-              benefits.map((benefit) => (
-                <li>
-                  <p>{benefit}</p>
-                </li>
-              ))
-          }
-        </ul>
-      </Prose>
+      <NarrowContainer>
+        <Prose>
+          <h2>What's included?</h2>
+          <ul>
+            {
+              benefits &&
+                benefits.map((benefit) => (
+                  <li>
+                    <p>{benefit}</p>
+                  </li>
+                ))
+            }
+          </ul>
+        </Prose>
+      </NarrowContainer>
     </section>
     <section class="my-16">
-      <Prose>
-        <h2>Pricing Options</h2>
-        <p>Local Weddings: $300</p>
-        <p>Destination Weddings: $500 Plus travel and lodging</p>
-      </Prose>
+      <NarrowContainer>
+        <Prose>
+          <h2>Pricing Options</h2>
+          <p>Local Weddings: $300</p>
+          <p>Destination Weddings: $500 Plus travel and lodging</p>
+        </Prose>
+      </NarrowContainer>
     </section>
     <Contact />
   </article>

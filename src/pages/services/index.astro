@@ -1,0 +1,82 @@
+---
+import site from "../../data/site.json";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import Contact from "../../components/Contact.astro";
+
+import CardList from "../../containers/CardList";
+import HandMedical from "@components/icons/HandMedical.astro";
+import FaBookBible from "@components/icons/FaBookBible.astro";
+import FaCross from "@components/icons/FaCross.astro";
+import Section from "@components/Section.astro";
+
+const title = "Break the Cycle Ministries";
+---
+
+<BaseLayout description={site.description} {title}>
+  <CardList class="text-white">
+    <Section slot="three" color="bg-primary" title="Explore Our Services">
+      <ul
+        role="list"
+        class="mx-auto px-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        <li
+          class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+        >
+          <div>
+            <HandMedical />
+            <h3 class="my-8">Weddings</h3>
+            <p>
+              Here at your ceremony we are a Judgement free ministry. We want to
+              give people from all walks of life an experience, not just another
+              officiant.
+            </p>
+            <a href="/services/weddings">
+              <button
+                type="button"
+                class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >Learn more</button
+              >
+            </a>
+          </div>
+        </li>
+        <li
+          class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+        >
+          <div>
+            <FaBookBible />
+            <h3 class="my-8">Funerals</h3>
+            <p>Coming soon</p>
+            <button
+              type="button"
+              disabled
+              class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >Learn more</button
+            >
+          </div>
+        </li>
+        <li
+          class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+        >
+          <div>
+            <FaCross />
+            <h3 class="my-8">Baptisms</h3>
+            <p>Coming soon</p>
+            <button
+              type="button"
+              disabled
+              class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >Learn more</button
+            >
+          </div>
+        </li>
+      </ul>
+    </Section>
+    <Contact slot="seven" />
+  </CardList>
+</BaseLayout>
+<style>
+  h2 {
+    @apply text-5xl md:text-6xl font-bold text-center mb-12;
+  }
+</style>

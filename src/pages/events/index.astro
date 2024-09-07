@@ -1,0 +1,51 @@
+---
+import site from "../../data/site.json";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import Event from "../../components/Event.astro";
+import NarrowContainer from "../../containers/NarrowContainer";
+
+import Contact from "../../components/Contact.astro";
+
+import CardList from "../../containers/CardList";
+import Section from "@components/Section.astro";
+import { getCollection } from "astro:content";
+interface Props {
+  canonicalUrl: URL;
+  description: string;
+  image: { src: string; alt: string };
+  title: string;
+}
+const title = "Break the Cycle Ministries";
+const events = await getCollection("events");
+---
+
+<BaseLayout description={site.description} {title}>
+  <CardList class="text-white">
+    {
+      events && events.length > 0 && (
+        <Section slot="five" title="Upcoming Events" color="bg-primary">
+          <NarrowContainer>
+            <div class="divide-y divide-content-2">
+              {events.map((event) => (
+                <Event {event}>
+                  <h3>Youth Empowerment Workshop</h3>
+                  <p>
+                    A dynamic workshop designed to inspire and empower our youth
+                    through interactive discussions and activities.
+                  </p>
+                </Event>
+              ))}
+            </div>
+          </NarrowContainer>
+        </Section>
+      )
+    }
+    <Contact slot="seven" />
+  </CardList>
+</BaseLayout>
+<style>
+  h2 {
+    @apply text-5xl md:text-6xl font-bold text-center mb-12;
+  }
+</style>

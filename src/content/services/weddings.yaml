@@ -5,7 +5,7 @@ benefits:
   - Legal documents signed and filed
 description: Here at your ceremony we are a Judgement free ministry. We want to give people from all walks of life an experience, not just another officiant. Rev. Billy AKA B-REV has come from a hard past and knows how love can change a person's life. We are compassionate and professional and want to bring our experience to your experience.
 excerpt: Here at your ceremony we are a Judgement free ministry. We want to give people from all walks of life an experience, not just another officiant.
-image: images/weddings.png
+image: ./weddings.png
 pricingOptions:
   - { price: 300.00, title: Local Weddings }
   - { price: 500.00, title: Destination Weddings }
