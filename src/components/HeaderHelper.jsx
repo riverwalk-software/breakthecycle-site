@@ -20,6 +20,7 @@ if (events && events.length > 0) {
 }
 
 navigation.push({ name: "About", href: "/about" });
+navigation.push({ name: "Contact Us", href: "/contact-us" });
 
 export default function Example(props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -28,14 +29,10 @@ export default function Example(props) {
     <header className="shadow-slate-300 bg-white lg:bg-opacity-5 lg:bg-black overflow-hidden">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 overflow-hidden"
+        className="mx-auto flex max-w-7xl text-lg items-center justify-between p-6 lg:px-8 overflow-hidden"
       >
         <a href="/" className="-m-1.5 p-1.5 overflow-hidden">
           <span className="sr-only">{site.name}</span>
-          {/* <img
-            className="w-10"
-            src="https://breakthecyclesministries.com/wp-content/uploads/2024/04/Untitled-1-1.png"
-          /> */}
           {props.logo}
         </a>
         <div className="flex lg:hidden">
@@ -53,7 +50,7 @@ export default function Example(props) {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-content"
+              className="text-xl font-semibold leading-6 text-content"
             >
               {item.name}
             </a>
@@ -81,6 +78,21 @@ export default function Example(props) {
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="h-6 w-6" />
             </button>
+          </div>
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-500/10">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-content hover:bg-gray-50"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </DialogPanel>
       </Dialog>

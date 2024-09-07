@@ -24,16 +24,22 @@ export default function Example() {
   return (
     <div className="isolate mx-auto bg-secondary px-6 py-8 mb-8 max-w-3xl rounded-3xl sm:py-12 shadow-2xl">
       <div className="mx-auto max-w-xl text-center">
-        {/* <h2 className="text-3xl font-bold tracking-tight text-content sm:text-4xl">
-          Get in touch with us
-        </h2> */}
         <p className="mt-2 text-lg leading-8 text-content">
           For inquiries, prayer requests, or to speak with our ministry team,
           please fill out our contact form or use the details below to reach us
           directly.
         </p>
       </div>
-      <form action="#" method="POST" className="mx-auto max-w-xl">
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        className="mx-auto max-w-xl"
+      >
+        <input
+          type="hidden"
+          name="access_key"
+          value="e8989fbd-33e2-429e-acde-67d1ebb5ec86"
+        />
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div className="sm:col-span-2">
             <label
