@@ -1,0 +1,33 @@
+---
+import { getEntry } from "astro:content";
+import Feature from "./Feature.astro";
+import Section from "./Section.astro";
+import NarrowContainer from "@containers/NarrowContainer";
+
+interface Props {
+  color: string;
+}
+
+const { color } = Astro.props;
+
+const author = await getEntry("authors", "billy-bowen");
+---
+
+<!-- <Section {color} title="Meet Rock the JVM"> -->
+<NarrowContainer>
+  <Feature image={author.data.photo} imagePosition="left">
+    <div class="mx-auto">
+      <h3 class="text-3xl font-semibold leading-7 tracking-tight text-content">
+        {author.data.name}
+      </h3>
+      {
+        author.data.biography && (
+          <p class="mt-4 text-lg leading-8 text-content">
+            {author.data.biography}
+          </p>
+        )
+      }
+    </div>
+  </Feature>
+</NarrowContainer>
+<!-- </Section> -->

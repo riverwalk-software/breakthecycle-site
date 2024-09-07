@@ -2,55 +2,54 @@
 import site from "../data/site.json";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Logo from "../assets/images/logos/rtjvm-red.png";
-import Membership from "../components/Membership.astro";
+
 import Event from "../components/Event.astro";
 import NarrowContainer from "../containers/NarrowContainer";
-import { type CollectionEntry } from "astro:content";
-import Testimonials from "../components/Testimonials.astro";
-import SocialProof from "../components/SocialProof.astro";
+
 import Hero from "../components/Hero.astro";
 import Contact from "../components/Contact.astro";
-import Courses from "../components/Courses.astro";
-import LatestContent from "../components/LatestContent.astro";
+
 import CardList from "../containers/CardList";
-import CTA from "@components/CTA.astro";
-import { Icon } from "astro-icon/components";
 import HandMedical from "@components/icons/HandMedical.astro";
 import FaBookBible from "@components/icons/FaBookBible.astro";
 import FaCross from "@components/icons/FaCross.astro";
+import Section from "@components/Section.astro";
+import Profile from "@components/Profile.astro";
+import { getCollection } from "astro:content";
 interface Props {
   canonicalUrl: URL;
   description: string;
   image: { src: string; alt: string };
   title: string;
-  companies: CollectionEntry<"companies">[];
 }
 const image = { src: Logo.src, alt: site.logo.alt };
 const title = "Break the Cycle Ministries";
 
-const events = [
-  {
-    section: {
-      src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-1346ad46-dc49-40c4-b400-0a589ee6d3ab-800x600.jpg",
-      alt: "Event 1",
-    },
-    flip: false,
-  },
-  {
-    section: {
-      src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-7f6da751-98b2-47bb-ab6b-4780a499a759-800x600.jpg",
-      alt: "Event 1",
-    },
-    flip: false,
-  },
-  {
-    section: {
-      src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-a67f3edd-e335-4072-82e1-99f2825fdd96-800x600.jpg",
-      alt: "Event 1",
-    },
-    flip: false,
-  },
-];
+// const events = [
+//   {
+//     section: {
+//       src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-1346ad46-dc49-40c4-b400-0a589ee6d3ab-800x600.jpg",
+//       alt: "Event 1",
+//     },
+//     flip: false,
+//   },
+//   {
+//     section: {
+//       src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-7f6da751-98b2-47bb-ab6b-4780a499a759-800x600.jpg",
+//       alt: "Event 1",
+//     },
+//     flip: false,
+//   },
+//   {
+//     section: {
+//       src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-a67f3edd-e335-4072-82e1-99f2825fdd96-800x600.jpg",
+//       alt: "Event 1",
+//     },
+//     flip: false,
+//   },
+// ];
+
+const events = await getCollection("events");
 
 const services = [
   {
@@ -71,114 +70,134 @@ const supplemental = "Empowering Journeys of Faith";
 ---
 
 <BaseLayout description={site.description} {image} {title}>
-  <div
-    class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-    aria-hidden="true"
-  >
-    <div
-      class="relative animate-pulse-slow left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-accent-2 to-accent-1/40 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-      style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-    >
-    </div>
-  </div>
-  <div
-    class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-    aria-hidden="true"
-  >
-    <div
-      class="relative animate-pulse-slower left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-accent-2 to-accent-1/40 opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-      style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-    >
-    </div>
-  </div>
   <Hero />
-  <!-- <CardList class="text-white">
-    <section class="w-full relative my-auto py-16" slot="two">
-      <div
-        class="absolute -z-20 inset-0 bg-cover bg-[url('https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-2365d98e-bff2-4640-a93d-bda52f5975d4-1920x1080.jpg')]"
+  <CardList class="text-white">
+    <Section slot="three" color="bg-primary" title="Explore Our Services">
+      <ul
+        role="list"
+        class="mx-auto px-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
       >
-      </div>
-      <div class="absolute -z-10 inset-0 bg-black opacity-60 backdrop-blur-sm">
-      </div>
-      <div class="mx-auto max-w-3xl z-10 text-white text-center">
-        <h2 class="text-lg mb-8">Support Our Mission</h2>
-        <p>
-          Your generous donation helps us continue our vital work at Break the
-          Cycle Ministries, empowering those trapped in cycles of despair. Every
-          contribution brings us closer to a world where everyone can access the
-          transformative power of faith and community support.
-        </p>
-        <button
-          type="button"
-          class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >Donate Now</button
+        <li
+          class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
         >
-      </div>
-    </section>
-  </CardList> -->
-  <NarrowContainer>
-    <CardList class="text-white">
-      <section slot="three" class="flex">
-        <div class="my-8">
-          <h2>Explore Our Services</h2>
-          <ul
-            role="list"
-            class="mx-auto px-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          <div>
+            <HandMedical />
+            <h3 class="my-8">Weddings</h3>
+            <p>
+              Here at your ceremony we are a Judgement free ministry. We want to
+              give people from all walks of life an experience, not just another
+              officiant.
+            </p>
+            <a href="/services/weddings">
+              <button
+                type="button"
+                class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >Learn more</button
+              >
+            </a>
+          </div>
+        </li>
+        <li
+          class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+        >
+          <div>
+            <FaBookBible />
+            <h3 class="my-8">Funerals</h3>
+            <p>Coming soon</p>
+            <button
+              type="button"
+              disabled
+              class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >Learn more</button
+            >
+          </div>
+        </li>
+        <li
+          class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+        >
+          <div>
+            <FaCross />
+            <h3 class="my-8">Baptisms</h3>
+            <p>Coming soon</p>
+            <button
+              type="button"
+              disabled
+              class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >Learn more</button
+            >
+          </div>
+        </li>
+      </ul>
+    </Section>
+    <!-- <section slot="three" class="flex mb-16">
+      <div class="my-8">
+        <header class="mx-auto mb-16 bg-primary">
+          <H2 color="red" class="text-center mx-auto text-white"
+            >Explore Our Services</H2
           >
-            <li
-              class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
-            >
-              <div>
-                <HandMedical />
-                <h3 class="my-8">Weddings</h3>
-                <p>
-                  Here at your ceremony we are a Judgement free ministry. We
-                  want to give people from all walks of life an experience, not
-                  just another officiant.
-                </p>
-                <button
-                  type="button"
-                  class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >Learn more</button
-                >
-              </div>
-            </li>
-            <li
-              class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
-            >
-              <div>
-                <FaBookBible />
-                <h3 class="my-8">Funerals</h3>
-                <p>Coming soon</p>
-                <button
-                  type="button"
-                  class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >Learn more</button
-                >
-              </div>
-            </li>
-            <li
-              class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
-            >
-              <div>
-                <FaCross />
-                <h3 class="my-8">Baptisms</h3>
-                <p>Coming soon</p>
-                <button
-                  type="button"
-                  class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >Learn more</button
-                >
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section slot="four" class="my-8">
-        <h2>About Us</h2>
+        </header>
         <ul
           role="list"
           class="mx-auto px-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <HandMedical />
+              <h3 class="my-8">Weddings</h3>
+              <p>
+                Here at your ceremony we are a Judgement free ministry. We want
+                to give people from all walks of life an experience, not just
+                another officiant.
+              </p>
+              <a href="/services/weddings">
+                <button
+                  type="button"
+                  class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >Learn more</button
+                >
+              </a>
+            </div>
+          </li>
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <FaBookBible />
+              <h3 class="my-8">Funerals</h3>
+              <p>Coming soon</p>
+              <button
+                type="button"
+                disabled
+                class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >Learn more</button
+              >
+            </div>
+          </li>
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <FaCross />
+              <h3 class="my-8">Baptisms</h3>
+              <p>Coming soon</p>
+              <button
+                type="button"
+                disabled
+                class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >Learn more</button
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section> -->
+    <Section slot="four" title="About Us" color="bg-primary">
+      <div class="divide-y">
+        <ul
+          role="list"
+          class="mx-auto px-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-16"
         >
           <li
             class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
@@ -219,48 +238,39 @@ const supplemental = "Empowering Journeys of Faith";
                 status quo of despair and offer a pathway to spiritual and
                 personal rebirth. We are dedicated to empowering individuals,
                 especially the youth, to overcome their challenges by embracing
-                the transformative power of God’s love and the supportive
+                the transformative power of God's love and the supportive
                 fellowship of our community.
               </p>
             </div>
           </li>
         </ul>
-      </section>
 
-      <section slot="five" class="min-h-[100vh] my-32">
-        <div class="">
-          <h2>Upcoming Events</h2>
-          {
-            events.map((event) => (
-              <Event
-                flip={event.flip}
-                section={event.section}
-                title={"Youth Empowerment Workshop"}
-                price={"Free"}
-                date={"October 15, 2023"}
-                description={
-                  "A dynamic workshop designed to inspire and empower our youth through interactive discussions and activities."
-                }
-              >
-                <h3>Youth Empowerment Workshop</h3>
-                <p>
-                  A dynamic workshop designed to inspire and empower our youth
-                  through interactive discussions and activities.
-                </p>
-              </Event>
-            ))
-          }
-        </div>
-      </section>
-      <SocialProof slot="six" />
-      <!-- <LatestContent slot="two" />
-      <Courses slot="three" />
-      <Membership slot="four" />
-      <SocialProof slot="five" />
-      <Testimonials slot="six" /> -->
-      <Contact slot="seven" />
-    </CardList>
-  </NarrowContainer>
+        <Profile color="bg-primary" />
+      </div>
+    </Section>
+
+    {
+      events && events.length > 0 && (
+        <Section slot="five" title="Upcoming Events" color="bg-primary">
+          <NarrowContainer>
+            <div class="divide-y divide-content-2">
+              {events.map((event) => (
+                <Event {event}>
+                  <h3>Youth Empowerment Workshop</h3>
+                  <p>
+                    A dynamic workshop designed to inspire and empower our youth
+                    through interactive discussions and activities.
+                  </p>
+                </Event>
+              ))}
+            </div>
+          </NarrowContainer>
+        </Section>
+      )
+    }
+    <Contact slot="seven" />
+  </CardList>
+  <!-- </NarrowContainer> -->
 </BaseLayout>
 <style>
   h2 {

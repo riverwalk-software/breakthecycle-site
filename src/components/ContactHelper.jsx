@@ -22,11 +22,11 @@ export default function Example() {
   const [agreed, setAgreed] = useState(false);
 
   return (
-    <div className="isolate bg-secondary px-6 py-8 mb-8 lg:mx-32 rounded-3xl sm:py-12 shadow-2xl">
+    <div className="isolate mx-auto bg-secondary px-6 py-8 mb-8 max-w-3xl rounded-3xl sm:py-12 shadow-2xl">
       <div className="mx-auto max-w-xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-content sm:text-4xl">
+        {/* <h2 className="text-3xl font-bold tracking-tight text-content sm:text-4xl">
           Get in touch with us
-        </h2>
+        </h2> */}
         <p className="mt-2 text-lg leading-8 text-content">
           For inquiries, prayer requests, or to speak with our ministry team,
           please fill out our contact form or use the details below to reach us

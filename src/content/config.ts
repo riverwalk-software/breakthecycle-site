@@ -1,34 +1,12 @@
-import articleCategories from "@collections/articleCategories";
-import articles from "@collections/articles";
-import authors from "@collections/authors";
-import companies from "@collections/companies";
-import courseCategories from "@collections/courseCategories";
-import courses from "@collections/courses";
 import legals from "@collections/legals";
-import memberships from "@collections/memberships";
-import newsletters from "@collections/newsletters";
-import seriess from "@collections/seriess";
 import services from "@collections/services";
-import socials from "@collections/socials";
-import tags from "@collections/tags";
-import testimonials from "@collections/testimonials";
-import videos from "@collections/videos";
+import authors from "@collections/authors";
+import events from "@collections/events";
 
 export const collections = {
-  articleCategories,
-  articles,
   authors,
-  companies,
-  courseCategories,
-  courses,
+  events,
   legals,
-  memberships,
-  newsletters,
-  seriess,
   services,
-  socials,
-  tags,
-  testimonials,
-  videos,
 };
 // TODO: auto export from src/schemas

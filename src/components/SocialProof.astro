@@ -2,10 +2,13 @@
 import { getEntry } from "astro:content";
 import AuthorExpanded from "./AuthorExpanded.astro";
 import LogoCloud from "./LogoCloud.astro";
+import NarrowContainer from "@containers/NarrowContainer";
 
 const author = await getEntry("authors", "billy-bowen");
 ---
 
-<section class="pt-24 pb-12">
-  <AuthorExpanded {author} />
+<section class="">
+  <NarrowContainer>
+    <AuthorExpanded {author} />
+  </NarrowContainer>
 </section>

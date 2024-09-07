@@ -1,0 +1,7 @@
+---
+import { Icon } from "astro-icon/components";
+import site from "../../data/site.json";
+const { ...rest } = Astro.props;
+---
+
+<Icon name="companies/btc" title={site.name} aria-hidden="true" {...rest} />

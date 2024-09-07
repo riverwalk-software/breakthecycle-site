@@ -14,12 +14,12 @@ interface Props {
 const membership = await getEntry("memberships", "personal");
 
 const monthlyPrice = membership.data.packages.find(
-  (e) => e.frequency === "monthly",
+  (e) => e.frequency === "monthly"
 )!.price;
 const monthlyTitle = "Monthly Membership";
 
 const yearlyPrice = membership.data.packages.find(
-  (e) => e.frequency === "yearly",
+  (e) => e.frequency === "yearly"
 )!.price;
 const yearlyTitle = "Yearly Membership";
 
@@ -33,11 +33,11 @@ const membershipNumExamples = (await getCollection("courses"))
   .map((e) => e.data.benefits?.numExamples ?? 0)
   .reduce((b, a) => b + a);
 const categories = (await getCollection("courseCategories")).sort((a, b) =>
-  a.data.ordinal <= b.data.ordinal ? -1 : 1,
+  a.data.ordinal <= b.data.ordinal ? -1 : 1
 );
 ---
 
-<div class="relative isolate bg-bkg px-6 py-1 sm:py-2 lg:px-8">
+<div class="relative isolate bg-white px-6 py-1 sm:py-2 lg:px-8">
   <div class="mx-auto max-w-2xl text-center lg:max-w-4xl">
     <!-- <h2 class="text-base font-semibold leading-7 text-indigo-600">Pricing</h2> -->
   </div>

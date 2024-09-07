@@ -22,11 +22,11 @@ export default function Example(props) {
       >
         <a href="/" className="-m-1.5 p-1.5">
           <span className="sr-only">{site.name}</span>
-          <img
+          {/* <img
             className="w-10"
             src="https://breakthecyclesministries.com/wp-content/uploads/2024/04/Untitled-1-1.png"
-          />
-          {/* {props.logo} */}
+          /> */}
+          {props.logo}
         </a>
         <div className="flex lg:hidden">
           <button

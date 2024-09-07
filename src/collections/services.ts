@@ -1,16 +1,18 @@
-import { unique } from "@utils/unique";
-import { string } from "astro/zod";
-import { defineCollection, reference, z } from "astro:content";
+import { defineCollection, z } from "astro:content";
 
 export default defineCollection({
-  type: "content",
+  type: "data",
   schema: ({ image }) =>
     z.object({
       benefits: z.array(z.string()),
+      description: z.string(),
+      excerpt: z.string(),
       image: image().optional(),
-      testimonials: z.string().optional(),
-      pricingOptions: z.array(z.string()),
-      longDesctipion: z.string(),
-      shortDescription: z.string(),
+      pricingOptions: z.array(
+        z.object({
+          price: z.number().positive(),
+          title: z.string(),
+        }),
+      ),
     }),
 });

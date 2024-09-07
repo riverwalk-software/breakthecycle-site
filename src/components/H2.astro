@@ -1,0 +1,16 @@
+---
+import Prose from "@components/Prose.astro";
+
+interface Props {
+  class?: string;
+  color?: string;
+}
+
+const { class: additionalClasses } = Astro.props;
+---
+
+<Prose class="mx-auto">
+  <h2 class={`text-center py-16 bg-transparent ${additionalClasses}`}>
+    <slot />
+  </h2>
+</Prose>
