@@ -8,8 +8,8 @@ import { getCollection } from "astro:content";
 
 let navigation = [];
 
-const services = await getCollection("events");
-const events = await getCollection("services");
+const services = await getCollection("services");
+const events = await getCollection("events");
 
 if (services && services.length > 0) {
   navigation.push({ name: "Services", href: "/services" });
