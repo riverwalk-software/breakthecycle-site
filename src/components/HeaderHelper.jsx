@@ -20,7 +20,7 @@ if (events && events.length > 0) {
 }
 
 navigation.push({ name: "About", href: "/about" });
-navigation.push({ name: "Contact Us", href: "/contact-us" });
+navigation.push({ name: "Contact Us", href: "/contact" });
 
 export default function Example(props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
