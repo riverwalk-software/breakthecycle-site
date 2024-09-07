@@ -28,62 +28,10 @@ const { article, canonicalUrl, description, error, image, title, type } =
 ---
 
 <head>
-  <script is:inline>
-    const setDataTheme = () => {
-      document.documentElement.setAttribute(
-        "data-theme",
-        localStorage.getItem("theme") === "system"
-          ? window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light"
-          : localStorage.getItem("theme")
-      );
-    };
-    const setThemeToggle = () => {
-      ["systemTheme", "lightTheme", "darkTheme"].forEach(
-        (id) => (document.getElementById(id).style.display = "none")
-      );
-      const theme = localStorage.getItem("theme");
-      document.getElementById(
-        theme === "system"
-          ? "systemTheme"
-          : theme === "light"
-            ? "lightTheme"
-            : "darkTheme"
-      ).style.display = "block";
-    };
-    const setProse = () => {
-      for (const element of document.getElementsByClassName("prose"))
-        document.documentElement.getAttribute("data-theme") === "dark"
-          ? element.classList.add("prose-invert")
-          : element.classList.remove("prose-invert");
-    };
-
-    localStorage.getItem("theme") || localStorage.setItem("theme", "system");
-    setDataTheme();
-    document.addEventListener("DOMContentLoaded", () => {
-      setProse();
-      setThemeToggle();
-      document.getElementById("themeToggle").addEventListener("click", () => {
-        localStorage.setItem(
-          "theme",
-          localStorage.getItem("theme") === "system"
-            ? "light"
-            : localStorage.getItem("theme") === "light"
-              ? "dark"
-              : "system"
-        );
-        setDataTheme();
-        setProse();
-        setThemeToggle();
-      });
-    });
-  </script>
   <Fragment>
     <meta charset="utf-8" />
     <meta name="generator" content={Astro.generator} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light dark" />
     <link
       rel="alternate"
       type="application/rss+xml"
