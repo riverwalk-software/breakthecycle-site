@@ -8,4 +8,9 @@ excerpt: Here at your ceremony we are a Judgement free ministry. We want to give
 image: ./weddings.png
 pricingOptions:
   - { price: 300.00, title: Local Weddings }
-  - { price: 500.00, title: Destination Weddings }
+  - {
+      additionalCost: "plus travel and lodging",
+      price: 500.00,
+      title: Destination Weddings,
+    }
+title: Weddings

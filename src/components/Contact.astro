@@ -3,6 +3,12 @@ import ContactHelper from "./ContactHelper";
 import ContactBackgroundImage from "../assets/images/latest/contact-background.png";
 import { Image } from "astro:assets";
 import Section from "./Section.astro";
+
+interface Props {
+  topText?: string;
+}
+
+const { topText } = Astro.props;
 ---
 
 <Section color="bg-primary" hideMargin={true} title="Get in touch with us">
@@ -16,5 +22,5 @@ import Section from "./Section.astro";
     alt="Contact background"
     class="absolute inset-0 -z-20 w-full h-full object-cover"
   />
-  <ContactHelper client:visible />
+  <ContactHelper {topText} client:visible />
 </Section>

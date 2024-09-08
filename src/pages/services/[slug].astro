@@ -26,11 +26,11 @@ const { service } = Astro.props;
 console.log(service);
 ---
 
-<BaseLayout description="test" title="Weddings">
+<BaseLayout description="test" title={service.data.title}>
   <!-- <NarrowContainer> -->
   <article class="">
     <NarrowContainer>
-      <h1 class="my-16 mx-auto text-center">Our Wedding Services</h1>
+      <h1 class="my-16 mx-auto text-center">{service.data.title}</h1>
     </NarrowContainer>
     <NarrowContainer>
       <div class="max-w-2xl mx-auto">
@@ -40,40 +40,44 @@ console.log(service);
     <section class="my-16">
       <NarrowContainer>
         <Prose class="mx-auto">
-          <h2>Officiating Weddings</h2>
           <p>
-            Here at your ceremony we are a Judgement free ministry, We want to
-            give people from all walks of life an experience not just another
-            officiant. Rev. Billy AKA B-REV has come from a hard past and knows
-            how love can change a person's life. We are compassionate and
-            professional and want to bring our experience to your experience.
+            {service.data.description}
           </p>
         </Prose>
       </NarrowContainer>
     </section>
-    <section class="my-16">
-      <NarrowContainer>
-        <Prose class="mx-auto">
-          <h2>What's included?</h2>
-          <ul>
-            {
-              benefits &&
-                benefits.map((benefit) => (
-                  <li>
-                    <p>{benefit}</p>
-                  </li>
-                ))
-            }
-          </ul>
-        </Prose>
-      </NarrowContainer>
-    </section>
+    {
+      benefits && (
+        <section class="my-16">
+          <NarrowContainer>
+            <Prose class="mx-auto">
+              <h2>What's included?</h2>
+              <ul>
+                {benefits &&
+                  benefits.map((benefit) => (
+                    <li>
+                      <p>{benefit}</p>
+                    </li>
+                  ))}
+              </ul>
+            </Prose>
+          </NarrowContainer>
+        </section>
+      )
+    }
     <section class="my-16">
       <NarrowContainer>
         <Prose class="mx-auto">
           <h2>Pricing Options</h2>
-          <p>Local Weddings: $300</p>
-          <p>Destination Weddings: $500 Plus travel and lodging</p>
+          {
+            service.data.pricingOptions &&
+              service.data.pricingOptions.map((option) => (
+                <p>
+                  <strong>{option.title}:</strong> ${option.price}{" "}
+                  {option.additionalCost ? option.additionalCost : ""}
+                </p>
+              ))
+          }
         </Prose>
       </NarrowContainer>
     </section>

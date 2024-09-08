@@ -18,17 +18,20 @@ import { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Field, Label, Switch } from "@headlessui/react";
 
-export default function Example() {
+export default function Example(props) {
   const [agreed, setAgreed] = useState(false);
 
   return (
     <div className="isolate mx-auto bg-secondary px-6 py-8 mb-8 max-w-3xl rounded-3xl sm:py-12 shadow-2xl">
       <div className="mx-auto max-w-xl text-center">
-        <p className="mt-2 text-lg leading-8 text-content">
+        {props && props.topText && (
+          <p className="mt-2 text-lg leading-8 text-content">{props.topText}</p>
+        )}
+        {/* <p className="mt-2 text-lg leading-8 text-content">
           For inquiries, prayer requests, or to speak with our ministry team,
           please fill out our contact form or use the details below to reach us
           directly.
-        </p>
+        </p> */}
       </div>
       <form
         action="https://api.web3forms.com/submit"

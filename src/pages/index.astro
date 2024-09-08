@@ -11,8 +11,6 @@ import Contact from "../components/Contact.astro";
 
 import CardList from "../containers/CardList";
 import HandMedical from "@components/icons/HandMedical.astro";
-import FaBookBible from "@components/icons/FaBookBible.astro";
-import FaCross from "@components/icons/FaCross.astro";
 import Section from "@components/Section.astro";
 import Profile from "@components/Profile.astro";
 import { getCollection } from "astro:content";
@@ -25,92 +23,95 @@ interface Props {
 const image = { src: Logo.src, alt: site.logo.alt };
 const title = "Break the Cycle Ministries";
 
-// const events = [
-//   {
-//     section: {
-//       src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-1346ad46-dc49-40c4-b400-0a589ee6d3ab-800x600.jpg",
-//       alt: "Event 1",
-//     },
-//     flip: false,
-//   },
-//   {
-//     section: {
-//       src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-7f6da751-98b2-47bb-ab6b-4780a499a759-800x600.jpg",
-//       alt: "Event 1",
-//     },
-//     flip: false,
-//   },
-//   {
-//     section: {
-//       src: "https://breakthecyclesministries.com/wp-content/uploads/2024/04/0-a67f3edd-e335-4072-82e1-99f2825fdd96-800x600.jpg",
-//       alt: "Event 1",
-//     },
-//     flip: false,
-//   },
-// ];
+const contactText = "For inquiries, prayer requests, or to speak with our ministry team, please fill out our contact form or use the details below to reach us directly."
 
 const events = await getCollection("events");
+const services = await getCollection("services");
 ---
 
 <BaseLayout description={site.description} {image} {title}>
   <Hero />
   <CardList class="text-white">
     <Section slot="three" color="bg-primary" title="Explore Our Services">
-      <ul
-        role="list"
-        class="mx-auto px-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        <li
-          class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+      {services && services.length > 0 &&
+        <ul
+          role="list"
+          class="mx-auto px-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
         >
-          <div>
-            <HandMedical />
-            <h3 class="my-8">Weddings</h3>
-            <p>
-              Here at your ceremony we are a Judgement free ministry. We want to
-              give people from all walks of life an experience, not just another
-              officiant.
-            </p>
-            <a href="/services/weddings">
+          {services.map(service =>
+            (
+              <li
+                class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+              >
+                <div>
+                  <HandMedical />
+                  <h3 class="my-8">{service.data.title}</h3>
+                  <p>
+                    {service.data.excerpt}
+                  </p>
+                  <a href=`/services/${service.id}`>
+                    <button
+                      type="button"
+                      class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      >Learn more</button
+                    >
+                  </a>
+                </div>
+              </li>
+            )
+          )}
+          {/* <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <HandMedical />
+              <h3 class="my-8">Weddings</h3>
+              <p>
+                Here at your ceremony we are a Judgement free ministry. We want to
+                give people from all walks of life an experience, not just another
+                officiant.
+              </p>
+              <a href="/services/weddings">
+                <button
+                  type="button"
+                  class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >Learn more</button
+                >
+              </a>
+            </div>
+          </li>
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <FaBookBible />
+              <h3 class="my-8">Funerals</h3>
+              <p>Coming soon</p>
               <button
                 type="button"
-                class="rounded-full my-8 mx-auto bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                disabled
+                class="rounded-full my-8 mx-auto bg-gray-400 px-4 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 >Learn more</button
               >
-            </a>
-          </div>
-        </li>
-        <li
-          class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
-        >
-          <div>
-            <FaBookBible />
-            <h3 class="my-8">Funerals</h3>
-            <p>Coming soon</p>
-            <button
-              type="button"
-              disabled
-              class="rounded-full my-8 mx-auto bg-gray-400 px-4 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-              >Learn more</button
-            >
-          </div>
-        </li>
-        <li
-          class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
-        >
-          <div>
-            <FaCross />
-            <h3 class="my-8">Baptisms</h3>
-            <p>Coming soon</p>
-            <button
-              type="button"
-              disabled
-              class="rounded-full my-8 mx-auto bg-gray-400 px-4 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-              >Learn more</button
-            >
-          </div>
-        </li>
-      </ul>
+            </div>
+          </li>
+          <li
+            class="col-span-1 divide-y rounded-lg bg-none flex center justify-center"
+          >
+            <div>
+              <FaCross />
+              <h3 class="my-8">Baptisms</h3>
+              <p>Coming soon</p>
+              <button
+                type="button"
+                disabled
+                class="rounded-full my-8 mx-auto bg-gray-400 px-4 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                >Learn more</button
+              >
+            </div>
+          </li> */}
+        </ul>
+      }
     </Section>
     <!-- <section slot="three" class="flex mb-16">
       <div class="my-8">
@@ -251,7 +252,7 @@ const events = await getCollection("events");
         </Section>
       )
     }
-    <Contact slot="seven" />
+    <Contact topText={contactText} slot="seven" />
   </CardList>
   <!-- </NarrowContainer> -->
 </BaseLayout>
