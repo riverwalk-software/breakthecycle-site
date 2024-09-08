@@ -1,0 +1,79 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+import { Image } from "astro:assets";
+import NarrowContainer from "@containers/NarrowContainer";
+import Prose from "@components/Prose.astro";
+import Contact from "@components/Contact.astro";
+
+const { id } = Astro.params;
+const course = await getEntry("events", id!);
+const frontmatter = course!.data;
+const { image } = frontmatter;
+
+export async function getStaticPaths() {
+  const events = await getCollection("events");
+
+  return events.map((event) => ({
+    params: { id: event.id },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+
+console.log(event);
+---
+
+<BaseLayout description="test" title={event.data.title}>
+  <!-- <NarrowContainer> -->
+  <article class="">
+    <NarrowContainer>
+      <h1 class="my-16 mx-auto text-center">{event.data.title}</h1>
+    </NarrowContainer>
+    <NarrowContainer>
+      <div class="max-w-2xl mx-auto">
+        {image && <Image src={image} alt="Wedding events" />}
+      </div>
+    </NarrowContainer>
+    <section class="my-16">
+      <NarrowContainer>
+        <Prose class="mx-auto">
+          <p>
+            {event.data.description}
+          </p>
+          {
+            (event.data.price || event.data.price == 0) && (
+              <p>
+                <strong>This event is free to attend.</strong>
+              </p>
+            )
+          }
+          {
+            event.data.location && (
+              <p>
+                <strong>Location: </strong> {event.data.location}
+              </p>
+            )
+          }
+        </Prose>
+      </NarrowContainer>
+    </section>
+    {
+      event.data.price > 0 && (
+        <section class="my-16">
+          <NarrowContainer>
+            <Prose class="mx-auto">
+              <h2>Pricing Options</h2>
+              <p>
+                <strong>Cost to attend: </strong>event.data.price
+              </p>
+            </Prose>
+          </NarrowContainer>
+        </section>
+      )
+    }
+    <Contact contactOption={event.data.title} />
+  </article>
+  <!-- </NarrowContainer> -->
+</BaseLayout>

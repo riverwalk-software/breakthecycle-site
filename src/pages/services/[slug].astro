@@ -4,7 +4,6 @@ import { getCollection, getEntry } from "astro:content";
 import { Image } from "astro:assets";
 import NarrowContainer from "@containers/NarrowContainer";
 import Prose from "@components/Prose.astro";
-import WeddingPricing from "@components/WeddingPricing.astro";
 import Contact from "@components/Contact.astro";
 
 const { slug } = Astro.params;
@@ -81,7 +80,7 @@ console.log(service);
         </Prose>
       </NarrowContainer>
     </section>
-    <Contact />
+    <Contact contactOption={service.data.title} />
   </article>
   <!-- </NarrowContainer> -->
 </BaseLayout>

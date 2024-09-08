@@ -239,13 +239,7 @@ const services = await getCollection("services");
           <NarrowContainer>
             <div class="divide-y divide-content-2">
               {events.map((event) => (
-                <Event {event}>
-                  <h3>Youth Empowerment Workshop</h3>
-                  <p>
-                    A dynamic workshop designed to inspire and empower our youth
-                    through interactive discussions and activities.
-                  </p>
-                </Event>
+                <Event {event} />
               ))}
             </div>
           </NarrowContainer>

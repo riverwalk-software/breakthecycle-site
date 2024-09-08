@@ -5,12 +5,13 @@ interface Props {
   color: string;
   title?: string;
   hideMargin?: boolean;
+  id?: string;
 }
 
-const { color, title, hideMargin = false } = Astro.props;
+const { color, title, id, hideMargin = false } = Astro.props;
 ---
 
-<section class={`pb-8 ${hideMargin ? "" : "mb-16"} relative`}>
+<section {id} class={`pb-8 ${hideMargin ? "" : "mb-16"} relative`}>
   <div class="">
     {
       title && (

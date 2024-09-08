@@ -78,6 +78,41 @@ export default function Example(props) {
               />
             </div>
           </div>
+
+          {props.contactOptions && props.contactOptions.length !== 0 && (
+            <div className="sm:col-span-2">
+              <label
+                htmlFor="contactReason"
+                className="block text-sm font-semibold leading-6 text-content"
+              >
+                Reason for contact (optional):
+              </label>
+              {props.contactOptions && props.contactOptions.length === 1 && (
+                <select
+                  name="contactReason"
+                  id="contactReason"
+                  defaultValue={props.contactOptions[0]}
+                  disabled
+                >
+                  <option value={props.contactOptions[0]}>
+                    {props.contactOptions[0]}
+                  </option>
+                </select>
+              )}
+              {props.contactOptions && props.contactOptions.length > 1 && (
+                <select
+                  name="contactReason"
+                  id="contactReason"
+                  defaultValue={""}
+                >
+                  {props.contactOptions.map((e) => (
+                    <option value={e}>{e}</option>
+                  ))}
+                </select>
+              )}
+            </div>
+          )}
+
           <div className="sm:col-span-2">
             <label
               htmlFor="message"

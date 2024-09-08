@@ -3,15 +3,32 @@ import ContactHelper from "./ContactHelper";
 import ContactBackgroundImage from "../assets/images/latest/contact-background.png";
 import { Image } from "astro:assets";
 import Section from "./Section.astro";
+import { getCollection } from "astro:content";
 
 interface Props {
   topText?: string;
+  contactOption?: string;
 }
 
-const { topText } = Astro.props;
+const { contactOption, topText } = Astro.props;
+
+const events = await getCollection("events");
+const services = await getCollection("services");
+
+const contactOptions = [
+  ...services.map((s) => s.data.title),
+  ...events.map((e) => e.data.title),
+  "Questions",
+  "Other",
+];
 ---
 
-<Section color="bg-primary" hideMargin={true} title="Get in touch with us">
+<Section
+  id="contact"
+  color="bg-primary"
+  hideMargin={true}
+  title="Get in touch with us"
+>
   <div
     style="background:linear-gradient(90deg, #003566 40%, rgba(0, 0, 0, 0.5) 100%)"
     class="absolute inset-0 -z-10"
@@ -22,5 +39,18 @@ const { topText } = Astro.props;
     alt="Contact background"
     class="absolute inset-0 -z-20 w-full h-full object-cover"
   />
-  <ContactHelper {topText} client:visible />
+  {
+    contactOption && (
+      <ContactHelper
+        {topText}
+        contactOptions={[contactOption]}
+        client:visible
+      />
+    )
+  }
+  {
+    !contactOption && (
+      <ContactHelper {topText} {contactOptions} client:visible />
+    )
+  }
 </Section>
